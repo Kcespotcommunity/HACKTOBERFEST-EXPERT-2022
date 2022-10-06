@@ -20,7 +20,7 @@ public class User {
     private Address address;
     private String mobileNo;
     private Plan plan;
-
+    private DietPlan dietPlan[];
 }
 
 @Data
@@ -36,6 +36,21 @@ class Address{
 @Data
 class Plan{
     private String durationInMonths;
-    private Data renewedDate;
-    private Data endDate;
+    private Date renewedDate;
+    private Date endDate;
+}
+
+@Data
+class DietPlan{
+    @Id
+    private String id;
+    private DietDays dietDays[];
+    private String description;
+}
+
+@Data
+class DietDays{
+    private Date date;
+    private Date month;
+    private Date year;
 }
