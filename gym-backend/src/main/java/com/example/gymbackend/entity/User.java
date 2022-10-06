@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Document("user")
@@ -21,9 +22,9 @@ public class User {
     private Address address;
     private String mobileNo;
     private Plan plan;
-    private boolean isBlocked;
+    private boolean active;
     public String password;
-    private DietPlan dietPlan[];
+    private List<DietPlan> dietPlan;
 }
 
 @Data
@@ -39,7 +40,7 @@ class Address {
 @Data
 class Plan {
     private String durationInMonths;
-    private Date renewedDate;
+    private Date startDate;
     private Date endDate;
 }
 
@@ -47,7 +48,7 @@ class Plan {
 class DietPlan {
     @Id
     private String id;
-    private DietDays dietDays[];
+    private List<DietDays> dietDays;
     private String description;
 }
 
