@@ -1,27 +1,15 @@
-package com.example.gymbackend.entity;
+package com.example.gymbackend.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Date;
 
 @Data
-@Document("user")
-@AllArgsConstructor @NoArgsConstructor
-public class User {
-
-    @Id
+public class UserDTO {
     private String id;
     private String name;
     private int age;
-    private Address address;
     private String mobileNo;
-    private Plan plan;
     private boolean isBlocked;
-    public String password;
 
 }
 
@@ -41,3 +29,4 @@ class Plan{
     private Date renewedDate;
     private Date endDate;
 }
+
