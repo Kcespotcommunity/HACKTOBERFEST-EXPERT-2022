@@ -17,17 +17,17 @@ const router = new Router({
       component: HomePage,
     },
     {
-      path: "dashboard",
+      path: "/dashboard",
       name: "DashBoardPage",
       component: DashBoardPage,
     },
     {
-      path: "login",
+      path: "/login",
       name: "LoginPage",
       component: LoginPage,
     },
     {
-      path: "register",
+      path: "/register",
       name: "RegisterPage",
       component: RegisterPage,
     },
