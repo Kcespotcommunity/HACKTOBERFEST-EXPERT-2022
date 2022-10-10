@@ -1,12 +1,10 @@
 package com.example.gymbackend.controller;
 
+import com.example.gymbackend.dto.UserDTO;
 import com.example.gymbackend.entity.User;
 import com.example.gymbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,13 +15,18 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/add")
-    public User insertUser(@RequestBody User user){
-        return userService.insertUser(user);
+    public UserDTO insertUser(@RequestBody UserDTO userDTO){
+        return userService.insertUser(userDTO);
     }
 
     @GetMapping(value = "/get-users")
     public List<User> getAllUser(){
        return userService.getAllUsers();
+    }
+
+    @PutMapping("/update-user")
+    public String updateUser(@RequestBody UserDTO userDTO){
+       return userService.updateUser(userDTO);
     }
 
 }

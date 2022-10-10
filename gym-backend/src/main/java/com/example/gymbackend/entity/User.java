@@ -10,7 +10,8 @@ import java.util.Date;
 
 @Data
 @Document("user")
-@AllArgsConstructor @NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -20,11 +21,13 @@ public class User {
     private Address address;
     private String mobileNo;
     private Plan plan;
+    private boolean isBlocked;
+    public String password;
     private DietPlan dietPlan[];
 }
 
 @Data
-class Address{
+class Address {
     private String doorNo;
     private String streetName;
     private String city;
@@ -34,14 +37,14 @@ class Address{
 }
 
 @Data
-class Plan{
+class Plan {
     private String durationInMonths;
     private Date renewedDate;
     private Date endDate;
 }
 
 @Data
-class DietPlan{
+class DietPlan {
     @Id
     private String id;
     private DietDays dietDays[];
@@ -49,7 +52,7 @@ class DietPlan{
 }
 
 @Data
-class DietDays{
+class DietDays {
     private Date date;
     private Date month;
     private Date year;
