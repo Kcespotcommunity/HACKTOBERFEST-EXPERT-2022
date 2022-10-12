@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Data
 @Document("dietPlan")
-class DietPlan {
+public class DietPlan {
     @Id
     private String id;
     private DietDays dietDays[];
