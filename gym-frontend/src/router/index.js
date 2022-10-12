@@ -6,6 +6,7 @@ import DashBoardPage from "../pages/DashBoardPage.vue";
 import PageNotFound from "../pages/PageNotFound.vue";
 import LoginPage from "../pages/LoginPage.vue";
 import RegisterPage from "../pages/RegisterPage.vue";
+import ContactPage from "../pages/ContactPage.vue"
 Vue.use(Router);
 
 const router = new Router({
@@ -17,19 +18,24 @@ const router = new Router({
       component: HomePage,
     },
     {
-      path: "dashboard",
+      path: "/dashboard",
       name: "DashBoardPage",
       component: DashBoardPage,
     },
     {
-      path: "login",
+      path: "/login",
       name: "LoginPage",
       component: LoginPage,
     },
     {
-      path: "register",
+      path: "/register",
       name: "RegisterPage",
       component: RegisterPage,
+    },
+    {
+      path: "/contact",
+      name: "ContactPage",
+      component: ContactPage,
     },
     {
       path: "/*",
