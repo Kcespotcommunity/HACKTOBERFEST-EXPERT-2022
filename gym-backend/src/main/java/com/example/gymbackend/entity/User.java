@@ -42,18 +42,3 @@ class Plan {
     private Date renewedDate;
     private Date endDate;
 }
-
-@Data
-class DietPlan {
-    @Id
-    private String id;
-    private DietDays dietDays[];
-    private String description;
-}
-
-@Data
-class DietDays {
-    private Date date;
-    private Date month;
-    private Date year;
-}

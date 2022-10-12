@@ -1,0 +1,49 @@
+
+<
+java:S1068"(Remove this unused "year" private field.(Ù€‹
+H
+java:S1068"4Remove this unused "durationInMonths" private field.(Û´ø¢
+@
+java:S1068",Remove this unused "dietPlan" private field.(·‘ñ
+D
+java:S1068"+Remove this unused "address" private field.(ßÍ˜²ýÿÿÿÿ
+=
+java:S1068")Remove this unused "month" private field.(ûþè€
+m
+java:S1104"TMake password a static final constant or non-public and provide accessors if needed.(¼þòüÿÿÿÿ
+A
+java:S1068"-Remove this unused "isBlocked" private field.(ýìÍ½
+>
+java:S1068"*Remove this unused "doorNo" private field.(–÷Ï•
+<
+java:S1068"(Remove this unused "city" private field.(“øÌà
+D
+java:S1068"+Remove this unused "pincode" private field.(Ö‘»ùÿÿÿÿ
+A
+java:S1068"(Remove this unused "plan" private field.(¿Œ¨åúÿÿÿÿ
+D
+java:S1068"+Remove this unused "country" private field.(“—àÊúÿÿÿÿ
+C
+java:S1068"/Remove this unused "renewedDate" private field.(Œ“æ«
+?
+java:S1068",Remove this unused "dietDays" private field.(ôüøm
+L
+java:S1197"8Move the array designator from the variable to the type.(·‘ñ
+@
+java:S1068"'Remove this unused "age" private field.(Æ†´¦þÿÿÿÿ
+D
+java:S1068"+Remove this unused "endDate" private field.(³ÁÎüþÿÿÿÿ
+B
+java:S1068")Remove this unused "state" private field.(µîŠ©øÿÿÿÿ
+<
+java:S1068"(Remove this unused "name" private field.(Ë¥¼
+K
+java:S1197"8Move the array designator from the variable to the type.(ôüøm
+A
+java:S1068"(Remove this unused "date" private field.(§ó®Øýÿÿÿÿ
+G
+java:S1068".Remove this unused "streetName" private field.(¦Ä»äùÿÿÿÿ
+@
+java:S1068",Remove this unused "mobileNo" private field.(îš…
+H
+java:S1068"/Remove this unused "description" private field.(ÇÓæâýÿÿÿÿ
