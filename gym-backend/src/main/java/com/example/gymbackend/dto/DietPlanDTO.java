@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Data
-class DietPlanDTO {
+public class DietPlanDTO {
     @Id
     private String id;
     private DietDays dietDays[];
