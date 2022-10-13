@@ -36,5 +36,13 @@ public class AdminServiceImpl implements AdminService {
         return CollectionUtils.isEmpty(adminRepo.findAll()) ? null : adminRepo.findAll();
     }
 
+    public String deleteAdmin(AdminDTO adminDTO) {
+        Admin admin = modelMapper.map(adminDTO, Admin.class);
+        if (Objects.isNull(admin))
+            return "Delete Failed";
+        adminRepo.delete(admin);
+        return "Deleted";
+    }
+
 
 }

@@ -13,4 +13,6 @@ public interface AdminService {
 
     public List<Admin> getAllAdmins();
 
+    public String deleteAdmin(AdminDTO adminDTO);
+
 }
