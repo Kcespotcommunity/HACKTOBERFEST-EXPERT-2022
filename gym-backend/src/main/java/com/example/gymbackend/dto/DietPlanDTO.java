@@ -8,7 +8,6 @@ import java.util.Date;
 
 @Data
 public class DietPlanDTO {
-    @Id
     private String id;
     private DietDays dietDays[];
     private String description;
