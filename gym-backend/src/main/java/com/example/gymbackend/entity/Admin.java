@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document("dietPlan")
+@Document("admin")
 public class Admin {
 
     @Id
