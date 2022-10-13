@@ -67,5 +67,17 @@ public class AdminController {
         return responseEntity;
     }
 
+    @DeleteMapping("/delete-admin")
+    public ResponseEntity<?> deleteAdmin(@RequestBody AdminDTO adminDTO) {
+        ResponseEntity<?> responseEntity = null;
+        String result = adminService.deleteAdmin(adminDTO);
+        if (result.equals("Deleted")) {
+            responseEntity = new ResponseEntity<>(result, HttpStatus.OK);
+        } else {
+            responseEntity = new ResponseEntity<>(result, HttpStatus.NOT_IMPLEMENTED);
+        }
+        return responseEntity;
+    }
+
 
 }
