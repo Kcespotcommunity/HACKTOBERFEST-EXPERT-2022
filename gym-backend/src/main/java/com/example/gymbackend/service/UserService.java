@@ -12,5 +12,7 @@ public interface UserService {
     List<User> getAllUsers();
     UserDTO findUserById(String id) throws Exception;
 
+    String upadteUserStatus(String id);
+
 
 }

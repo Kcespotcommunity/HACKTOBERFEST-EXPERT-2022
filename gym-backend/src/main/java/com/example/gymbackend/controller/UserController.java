@@ -74,4 +74,15 @@ public class UserController {
         }
     }
 
+
+    @PutMapping("/update-user-status/{id}")
+    public ResponseEntity<?> updateStatus(@PathVariable String id){
+        try{
+            return new ResponseEntity<>(userService.upadteUserStatus(id), HttpStatus.OK);
+        }catch (Exception exception){
+            return  new ResponseEntity<>(exception.getMessage(),HttpStatus.NOT_FOUND);
+        }
+
+    }
+
 }

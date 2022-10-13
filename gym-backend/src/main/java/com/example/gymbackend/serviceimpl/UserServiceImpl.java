@@ -51,4 +51,14 @@ public class UserServiceImpl implements UserService {
         return userRepo.findAll();
     }
 
+    @Override
+    public String upadteUserStatus(String id){
+        Optional<User> user = userRepo.findUserById(id);
+        if(!user.isPresent())
+            return "User not found";
+        user.get().setActive(false);
+        userRepo.save(user.get());
+        return "updated";
+    }
+
 }
