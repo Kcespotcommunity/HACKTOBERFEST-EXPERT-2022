@@ -43,6 +43,7 @@ class Plan {
     private Date startDate;
     private Date endDate;
 }
+<<<<<<< HEAD
 
 @Data
 class DietPlan {
@@ -58,3 +59,5 @@ class DietDays {
     private Date month;
     private Date year;
 }
+=======
+>>>>>>> e3dbed6530f5c7425748c6678acaf295e9c45f49
