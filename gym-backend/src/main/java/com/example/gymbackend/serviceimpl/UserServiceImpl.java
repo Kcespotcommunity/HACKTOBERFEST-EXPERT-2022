@@ -1,5 +1,6 @@
 package com.example.gymbackend.serviceimpl;
 
+import com.example.gymbackend.customexception.UserNotFoundException;
 import com.example.gymbackend.dto.UserDTO;
 import com.example.gymbackend.entity.User;
 import com.example.gymbackend.repository.UserRepo;
@@ -7,9 +8,9 @@ import com.example.gymbackend.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Objects;
 
 @Service
@@ -21,12 +22,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     ModelMapper modelMapper;
 
+    @Override
     public UserDTO insertUser(UserDTO userDTO) {
         User user = modelMapper.map(userDTO, User.class);
         return Objects.isNull(user) ? null : modelMapper.map(userRepo.save(user), UserDTO.class);
     }
 
-
+    @Override
     public String updateUser(UserDTO userDTO) {
         User user = modelMapper.map(userDTO, User.class);
         if (Objects.isNull(user))
@@ -35,8 +37,28 @@ public class UserServiceImpl implements UserService {
         return "Updated";
     }
 
+    @Override
+    public UserDTO findUserById(String id) throws Exception {
+        Optional<User> user = userRepo.findUserById(id);
+        if (user.isPresent())
+            return modelMapper.map(user.get(), UserDTO.class);
+        else
+            throw new UserNotFoundException();
+    }
+
+    @Override
     public List<User> getAllUsers() {
-        return CollectionUtils.isEmpty(userRepo.findAll()) ? null : userRepo.findAll();
+        return userRepo.findAll();
+    }
+
+    @Override
+    public String upadteUserStatus(String id){
+        Optional<User> user = userRepo.findUserById(id);
+        if(!user.isPresent())
+            return "User not found";
+        user.get().setActive(false);
+        userRepo.save(user.get());
+        return "updated";
     }
 
 }

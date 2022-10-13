@@ -10,12 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Objects;
 
 @RestController
-@CrossOrigin(origins = "*") //Always allow @Cors for seemless frontend-backend communication
+@CrossOrigin(origins = "*") // Always allow @Cors for seemless frontend-backend communication
 public class UserController {
 
     @Autowired
@@ -24,10 +25,9 @@ public class UserController {
     @Autowired
     ObjectMapper mapper;
 
-
     @PostMapping("/add")
     public ResponseEntity<?> insertUser(@RequestBody UserDTO userDTO) {
-        ResponseEntity<?> responseEntity = null; //Using Response Entity to Capture Http Status and Response from impl
+        ResponseEntity<?> responseEntity = null; // Using Response Entity to Capture Http Status and Response from impl
         UserDTO result = userService.insertUser(userDTO);
         try {
             if (Objects.isNull(result)) {
@@ -63,6 +63,26 @@ public class UserController {
             responseEntity = new ResponseEntity<>(result, HttpStatus.NOT_IMPLEMENTED);
         }
         return responseEntity;
+    }
+
+    @GetMapping("/find-user-by-id/{id}")
+    public UserDTO findUserById(@PathVariable String id) {
+        try {
+            return userService.findUserById(id);
+        } catch (Exception exception) {
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT, exception.getMessage());
+        }
+    }
+
+
+    @PutMapping("/update-user-status/{id}")
+    public ResponseEntity<?> updateStatus(@PathVariable String id){
+        try{
+            return new ResponseEntity<>(userService.upadteUserStatus(id), HttpStatus.OK);
+        }catch (Exception exception){
+            return  new ResponseEntity<>(exception.getMessage(),HttpStatus.NOT_FOUND);
+        }
+
     }
 
 }

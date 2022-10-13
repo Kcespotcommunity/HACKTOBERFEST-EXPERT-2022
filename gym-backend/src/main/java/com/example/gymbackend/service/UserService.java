@@ -10,6 +10,9 @@ public interface UserService {
     UserDTO insertUser(UserDTO userDTO);
     String updateUser(UserDTO userDTO);
     List<User> getAllUsers();
+    UserDTO findUserById(String id) throws Exception;
+
+    String upadteUserStatus(String id);
 
 
 }
