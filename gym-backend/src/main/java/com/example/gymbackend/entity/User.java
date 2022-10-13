@@ -25,6 +25,7 @@ public class User {
     private boolean active;
     public String password;
     private List<DietPlan> dietPlan;
+    private List<Excercise> excercise;
 }
 
 @Data
@@ -43,21 +44,6 @@ class Plan {
     private Date startDate;
     private Date endDate;
 }
-<<<<<<< HEAD
 
-@Data
-class DietPlan {
-    @Id
-    private String id;
-    private List<DietDays> dietDays;
-    private String description;
-}
 
-@Data
-class DietDays {
-    private Date date;
-    private Date month;
-    private Date year;
-}
-=======
->>>>>>> e3dbed6530f5c7425748c6678acaf295e9c45f49
+

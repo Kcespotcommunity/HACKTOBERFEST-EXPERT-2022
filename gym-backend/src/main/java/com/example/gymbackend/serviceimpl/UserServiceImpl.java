@@ -2,7 +2,9 @@ package com.example.gymbackend.serviceimpl;
 
 import com.example.gymbackend.customexception.UserNotFoundException;
 import com.example.gymbackend.dto.UserDTO;
+import com.example.gymbackend.entity.Excercise;
 import com.example.gymbackend.entity.User;
+import com.example.gymbackend.repository.ExcerciseRepo;
 import com.example.gymbackend.repository.UserRepo;
 import com.example.gymbackend.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -21,6 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     ModelMapper modelMapper;
+
+    @Autowired
+    ExcerciseRepo excerciseRepo;
 
     @Override
     public UserDTO insertUser(UserDTO userDTO) {
@@ -56,9 +61,24 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepo.findUserById(id);
         if(!user.isPresent())
             return "User not found";
-        user.get().setActive(false);
+        if(user.get().getActive())
+         user.get().setActive(false);
+        else user.get().setActive(true);
         userRepo.save(user.get());
         return "updated";
+    }
+
+    @Override
+    public List<User> getUserByStatus(boolean status){
+        return userRepo.findAllByActive(status);
+    }
+
+   public String assignExcercise(String id,String userId){
+       Optional<Excercise> excercise = excerciseRepo.findById(id);
+       Optional<User> user = userRepo.findUserById(id);
+       user.get().getExcercise().add(excercise.get());
+       userRepo.save(user.get());
+       return "added";
     }
 
 }
