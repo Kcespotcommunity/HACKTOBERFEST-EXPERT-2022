@@ -85,4 +85,25 @@ public class UserController {
 
     }
 
+    @GetMapping("/get-user-by-status/{status}")
+    public ResponseEntity<?> getUserByStatus(@PathVariable boolean status){
+        try{
+            return new ResponseEntity<>(userService.getUserByStatus(status), HttpStatus.OK);
+        }catch (Exception exception){
+            return  new ResponseEntity<>(exception.getMessage(),HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @PutMapping("/assign-excercise/{id}/{userId}")
+    public ResponseEntity<?> assignExcercise(@PathVariable String id ,@PathVariable String userId ){
+        try{
+            return new ResponseEntity<>(userService.getUserByStatus(status), HttpStatus.OK);
+        }catch (Exception exception){
+            return  new ResponseEntity<>(exception.getMessage(),HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+
 }

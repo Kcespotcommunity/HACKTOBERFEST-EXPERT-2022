@@ -14,5 +14,8 @@ public interface UserService {
 
     String upadteUserStatus(String id);
 
+    List<User> getUserByStatus(boolean status);
+
+    String assignExcercise(String id,String userId);
 
 }

@@ -1,5 +1,6 @@
 package com.example.gymbackend.dto;
 
+import com.example.gymbackend.entity.Excercise;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -19,6 +20,7 @@ public class UserDTO {
     private boolean active;
     public String password;
     private List<DietPlan> dietPlan;
+    private List<Excercise> excercise;
 }
 
 @Data
